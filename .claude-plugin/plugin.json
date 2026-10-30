@@ -1,0 +1,5 @@
+{
+  "name": "tailscale",
+  "description": "Publish the dev stack of any repository over HTTPS on the tailnet",
+  "license": "MIT"
+}

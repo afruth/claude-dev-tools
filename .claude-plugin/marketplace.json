@@ -1,0 +1,5 @@
+{
+  "name": "dev-tools",
+  "owner": { "name": "Andreas Fruth" },
+  "plugins": [{ "name": "tailscale", "source": "./" }]
+}
