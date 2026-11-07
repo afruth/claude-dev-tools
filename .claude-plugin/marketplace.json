@@ -1,5 +1,12 @@
 {
   "name": "dev-tools",
   "owner": { "name": "Andreas Fruth" },
-  "plugins": [{ "name": "tailscale", "source": "./" }]
+  "plugins": [
+    { "name": "tailscale", "source": "./" },
+    {
+      "name": "pr-live-review",
+      "source": { "source": "github", "repo": "afruth/pr-live-review" },
+      "description": "Live PR review pane: diff against the base branch, file summaries, and line comments sent to Claude"
+    }
+  ]
 }
