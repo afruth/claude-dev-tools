@@ -1,6 +1,6 @@
 # Claude dev tools
 
-This repository is a Claude Code plugin marketplace. It contains two plugins, `tailscale` and `pr-live-review`.
+This repository is a Claude Code plugin marketplace. It contains three plugins, `tailscale`, `pr-live-review` and `dispatch`.
 
 ## The tailscale plugin
 
@@ -21,6 +21,7 @@ The stack is available on your tailnet only. The plugin does not use `tailscale 
 claude plugin marketplace add afruth/claude-dev-tools
 claude plugin install tailscale@dev-tools
 claude plugin install pr-live-review@dev-tools
+claude plugin install dispatch@dev-tools
 ```
 
 ## Use
@@ -39,14 +40,26 @@ The plugin opens a pane with the diff of the checked-out PR against its base bra
 | - | - |
 | `/pr-live-review [repo path]` | Opens the review pane for the PR of the current checkout or of the given path. |
 
+## The dispatch plugin
+
+The plugin hands a task to a separate coding agent. It creates a git worktree from the default branch of the repository, copies the gitignored local config files (`.env*`, `.envrc`, `*.tfvars`, local secrets YAML) into it, and opens a new Rex window in the current Rex session. In that window it starts Claude Code or Codex with all permission prompts off and a brief that tells the agent to implement, test, commit, push and open a pull request.
+
+| Command | Result |
+| - | - |
+| `/dispatch:dispatch <task>` | Writes a brief for the task and starts Claude Code on it in a new worktree and Rex window. |
+| `/dispatch:dispatch codex <task>` | The same with Codex. |
+
+Requirements: Rex (run Claude Code inside a Rex session), git, `gh`, and Claude Code or Codex. As root, Claude Code is started with `IS_SANDBOX=1` so that it accepts `--dangerously-skip-permissions`. The first dispatch to a repository asks once whether to trust the folder.
+
 ## Update
 
 ```
 claude plugin marketplace update dev-tools
 claude plugin update tailscale@dev-tools
 claude plugin update pr-live-review@dev-tools
+claude plugin update dispatch@dev-tools
 ```
 
 ## Limits
 
-The plugin was tested on macOS only. Examine the skill text before you use it, because it starts and stops processes on your machine.
+The tailscale plugin was tested on macOS only. The dispatch plugin was tested on Linux only. Examine the skill text before you use it, because it starts and stops processes on your machine.

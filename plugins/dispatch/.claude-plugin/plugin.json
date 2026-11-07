@@ -1,0 +1,5 @@
+{
+  "name": "dispatch",
+  "description": "Hand a task to Claude Code or Codex running end to end in a fresh worktree and its own Rex tab",
+  "license": "MIT"
+}

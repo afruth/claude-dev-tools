@@ -1,12 +1,25 @@
 {
   "name": "dev-tools",
-  "owner": { "name": "Andreas Fruth" },
+  "owner": {
+    "name": "Andreas Fruth"
+  },
   "plugins": [
-    { "name": "tailscale", "source": "./" },
+    {
+      "name": "tailscale",
+      "source": "./"
+    },
     {
       "name": "pr-live-review",
-      "source": { "source": "github", "repo": "afruth/pr-live-review" },
+      "source": {
+        "source": "github",
+        "repo": "afruth/pr-live-review"
+      },
       "description": "Live PR review pane: diff against the base branch, file summaries, and line comments sent to Claude"
+    },
+    {
+      "name": "dispatch",
+      "source": "./plugins/dispatch",
+      "description": "Hand a task to Claude Code or Codex running end to end in a fresh worktree and its own Rex tab"
     }
   ]
 }
